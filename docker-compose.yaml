@@ -1,0 +1,22 @@
+version: "3"
+services: 
+  valheim_server:
+    build:
+	  context: .
+	  network: host
+	  args:
+	    SERVER_NAME: "Awesome server"
+		WORLD: "Valhalleim or watever"
+		PASSWORD: "change-me-pls"
+	  image: valheim_server:vanilla
+	network_mode: "host"
+	# not sure about protocol, so both are allowed
+	ports:
+	  - "2456:2456/udp"
+	  - "2456:2456/tcp"
+	  - "2457:2457/udp"
+	  - "2457:2457/tcp"
+	restart: always
+	volumes:
+	  - "/opt/valheim-server:/root/.config/unity3d/IronGate/Valheim"
+    
