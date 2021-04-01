@@ -5,9 +5,9 @@ services:
       context: .
       network: host
       args:
-        SERVER_NAME: "Awesome server"
-        WORLD: "Valhalleim or watever"
-        PASSWORD: "change-me-pls"
+        SERVER_NAME: "Trofogol's Valhalla"
+        WORLD: "T.Tanium"
+        PASSWORD: "topor"
     image: valheim_server:vanilla
     network_mode: "host"
     # not sure about protocol, so both are allowed
