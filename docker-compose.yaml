@@ -3,20 +3,17 @@ services:
   valheim_server:
     build:
       context: .
-      network: host
       args:
-        SERVER_NAME: "Trofogol's Valhalla"
-        WORLD: "T.Tanium"
-        PASSWORD: "topor"
+        name: "Trofogol's Valhalla"
+        world: "T.Tanium"
+        password: "topor"
+        public: 1
     image: valheim_server:vanilla
-    network_mode: "host"
     # not sure about protocol, so both are allowed
     ports:
       - "2456:2456/udp"
-      - "2456:2456/tcp"
       - "2457:2457/udp"
-      - "2457:2457/tcp"
     restart: always
     volumes:
-      - "/opt/valheim-server:/root/.config/unity3d/IronGate/Valheim"
+      - "/opt/valheim-server:/valheim-data"
     

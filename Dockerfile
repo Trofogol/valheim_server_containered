@@ -5,23 +5,32 @@
 # this image looks consistent (official)
 FROM steamcmd/steamcmd:ubuntu
 
-ARG PORT=2456
-ARG SERVER_NAME="your containerized server"
-ARG WORLD="Valhalleim or watever"
-ARG PASSWORD="change-me-pls"
+ARG port=2456
+ARG next_port=2457
+ARG name="your containerized server"
+ARG world="Valhalleim or watever"
+ARG password="change-me-pls"
+ARG public=1
 
-# folder for game
-RUN mkdir -p /valheim
+ENV PASSWORD=$password WORLD=$world SERVER_NAME=$name PORT=$port PUBLIC=$public NEXT_PORT=$next_port SAVEDIR="/valheim-data"
+
+# folders for game
+RUN mkdir -p /valheim && mkdir -p $SAVEDIR
+
+WORKDIR /valheim
+
+# install valheim server
+RUN steamcmd +force_install_dir /valheim +login anonymous +app_update 896660 validate +quit
+
+COPY ./launch_server.sh ./launch_server.sh
 
 # server's port
 EXPOSE $PORT
 # some Steams's "query port" (must be exposed as 2457 to external world)
 # not sure you need it, but let it be
-EXPOSE 2457
+EXPOSE $NEXT_PORT
 
-ENTRYPOINT steamcmd +force_install_dir /valheim +login anonymous +app_update 896660 validate +quit && valheim_server.x86_64
+ENTRYPOINT ./launch_server.sh
 
-CMD -name $SERVER_NAME -port $PORT -world $WORLD -password $PASSWORD
-
-# remember to mount folder to /root/.config/unity3d/IronGate/Valheim/worlds/ to save game 
-# files (world DB and world itself) in case you want to destroy container
+# remember to mount folder to SAVEDIR (check ENV line) to save game
+# files outside container
