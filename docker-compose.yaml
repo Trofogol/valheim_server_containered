@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
   valheim_server:
     build:
@@ -15,5 +15,10 @@ services:
       - "2457:2457/udp"
     restart: always
     volumes:
-      - "/opt/valheim-server:/valheim-data"
+      - "/mnt/h/portable/valheim-data:/valheim-data"
+
+    # these quotas works in version 2 only (docker-compose.yaml file, not any tool)
+    cpu_count: 4
+    # total RAM (mem+swap) limit
+    memswap_limit: 2g
     
