@@ -9,10 +9,10 @@ services:
         password: "topor"
         public: 1
     image: valheim_server:vanilla
-    # not sure about protocol, so both are allowed
     ports:
       - "2456:2456/udp"
       - "2457:2457/udp"
+      - "2458:2458/udp"
     restart: always
     volumes:
       - "/mnt/h/portable/valheim-data:/valheim-data"
