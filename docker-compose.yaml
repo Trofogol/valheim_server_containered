@@ -12,9 +12,6 @@ services:
       - "2456:2456/udp"
       - "2457:2457/udp"
       - "2458:2458/udp"
-        #- "2456:2456/tcp"
-        #- "2457:2457/tcp"
-        #- "2458:2458/tcp"
     # restart container even if it exits w/o error code
     # (won't be restarted if you stop container manually)
     restart: always
@@ -27,4 +24,5 @@ services:
     cpu_count: 4
     # total RAM (mem+swap) limit
     memswap_limit: 2g
-    
+     # soft (desired) limit, must be specified with memswap
+    mem_limit: 1.5g   
