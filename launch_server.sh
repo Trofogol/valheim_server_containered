@@ -8,7 +8,7 @@ echo "Starting server"
 # Tip: Make a local copy of this script to avoid it being overwritten by steam.
 # NOTE: Minimum password length is 5 characters & Password cant be in the server name.
 # NOTE: You need to make sure the ports 2456-2458 is being forwarded to your server through your local router & firewall.
-./valheim_server.x86_64 -name $SERVER_NAME -port $PORT -world $WORLD -password -public $PUBLIC -savedir $SAVEDIR
+./valheim_server.x86_64 -name $SERVER_NAME -port 2456 -world $WORLD -password $PASSWORD -public 1 -savedir $SAVEDIR
 
 export LD_LIBRARY_PATH=$templdpath
 

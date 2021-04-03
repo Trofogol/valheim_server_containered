@@ -8,7 +8,6 @@ FROM steamcmd/steamcmd:ubuntu
 ARG name="your containerized server"
 ARG world="Valhalleim or watever"
 ARG password="change-me-pls"
-ARG public=1
 
 ENV PASSWORD=$password WORLD=$world SERVER_NAME=$name PUBLIC=$public SAVEDIR="/valheim-data"
 
