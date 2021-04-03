@@ -4,20 +4,24 @@ services:
     build:
       context: .
       args:
-        name: "Trofogol's Valhalla"
-        world: "T.Tanium"
-        password: "topor"
+        name: "Awesome servr"
+        world: "Valhallheim or whatever"
+        password: "chang3_me_PLS!"
         public: 1
     image: valheim_server:vanilla
     ports:
       - "2456:2456/udp"
       - "2457:2457/udp"
       - "2458:2458/udp"
+    # restart container even if it exits w/o error code
+    # (won't be restarted if you stop container manually)
     restart: always
     volumes:
-      - "/mnt/h/portable/valheim-data:/valheim-data"
+    # change left part (before ":") to any other path (folder) of your system
+      - "/opt/valheim-server:/valheim-data"
 
     # these quotas works in version 2 only (docker-compose.yaml file, not any tool)
+    # feel free to change or disable them (comment by adding "#" before whole line
     cpu_count: 4
     # total RAM (mem+swap) limit
     memswap_limit: 2g
