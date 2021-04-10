@@ -21,8 +21,8 @@ services:
 
     # these quotas works in version 2 only (docker-compose.yaml file, not any tool)
     # feel free to change or disable them (comment by adding "#" before whole line
-    cpu_count: 4
+    #cpu_count: 4
     # total RAM (mem+swap) limit
-    memswap_limit: 2g
-     # soft (desired) limit, must be specified with memswap
-    mem_limit: 1.5g   
+    #memswap_limit: 2g
+    # soft (desired) limit, must be specified with memswap
+    #mem_limit: 1.5g   
