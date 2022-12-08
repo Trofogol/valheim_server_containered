@@ -5,19 +5,19 @@ dockered (and composed) version of vanilla Valheim server
 
 > Tested on Ubuntu 18 and Ubuntu 20 cloud servers (VM)
 
-1. Clone this repo
+Clone this repo
 
 ```
 git clone <link from upper-right green button of this repository> valheim
 ```
 
-1. Switch to newly created folder
+Switch to newly created folder
 
 ```
 cd valheim-server-containerized
 ```
 
-### Preparations
+### Tools
 
 `./install-tools.sh` - will install all necessary tools on fresh Ubuntu-based OS (it uses apt). 
 Run it as root user (add `sudo` before it if you are not root user).
@@ -43,9 +43,9 @@ restart instance to apply changes
 
 `sudo reboot`
 
-### Configure and (re)start
+## Configure and (re)start
 
-#### configure
+### configure
 
 > It looks okay running it on shared 2vCPU 2Gb cloud instance (I tried it on Digital Ocean).
 >
@@ -65,15 +65,15 @@ restart instance to apply changes
 
 1. (optional) `launch_server.sh`: edit number after `-public` argument
 
-#### Re(build) and (Re)Start
+### Re(build) and (Re)Start
 
 `./hit-it.sh`
 
 This allows you to build and start the server the first time, as well as rebuild and restart it in future
 
-> The next command should be used inside this repo root folder, as it has to find `docker-compose.yaml` file
+> The command should be used inside this repo root folder, as it has to find `docker-compose.yaml` file
 
-> in case you did not add your non-root user to docker group, just use `sudo` for next command
+> in case you did not add your non-root user to docker group, just use `sudo` for the command
 
 This script tries to stop server gracefully (if it is already running) so your game files shoud be saved properly. 
 Then it (re)builds Docker image (basically update server version to latest) and starts server. 
