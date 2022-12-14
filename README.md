@@ -47,7 +47,7 @@ restart instance to apply changes
 
 ### configure
 
-> It looks okay running it on shared 2vCPU 2Gb cloud instance (I tried it on Digital Ocean).
+> It looks okay running it on shared 4vCPU 2Gb cloud instance.
 >
 > Less CPU has caused disconnections, there was no option to get less than 2 Gb RAM when I tested it
 
@@ -63,7 +63,7 @@ restart instance to apply changes
 
 1. (optional) `docker-compose.yaml`: uncomment [and change if needed] `cpu_count`, `mem_limit` and `memswap_limit`. Memory params can understand size units: `g`,`m`,`k`,`b`. I don't recommend set it lower than 1.5g (1.5 Gb)
 
-1. (optional) `launch_server.sh`: edit number after `-public` argument
+1. (optional) tune `launch_server.sh`: adjust time between saves, number of backups, make it public or not
 
 ### Re(build) and (Re)Start
 
