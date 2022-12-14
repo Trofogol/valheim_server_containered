@@ -77,4 +77,4 @@ This allows you to build and start the server the first time, as well as rebuild
 
 This script tries to stop server gracefully (if it is already running) so your game files shoud be saved properly. 
 Then it (re)builds Docker image (basically update server version to latest) and starts server. 
-You can launch it periodically via cron or manually every time devs updates game/server version.
+You can launch it periodically via cron or manually every time the devs update game/server version.
