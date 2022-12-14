@@ -8,7 +8,7 @@ dockered (and composed) version of vanilla Valheim server
 Clone this repo
 
 ```
-git clone <link from upper-right green button of this repository> valheim
+git clone <link from upper-right green button of this repository>
 ```
 
 Switch to newly created folder
